@@ -32,14 +32,10 @@ services:
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         restart: always
-        links: 
-            - sqldb2:sqldb2
         ports:
             - 9732:80
         environment:
-            MYSQL_USER: user
-            MYSQL_PASSWORD: test
-            MYSQL_ROOT_PASSWORD: test
+            -PMA_ARBITRARY=1
         networks:
             - my-main-net
 volumes:

@@ -17,6 +17,8 @@ RUN apt-get update && \
 RUN docker-php-ext-configure imap --with-kerberos --with-imap-ssl && \
     docker-php-ext-install mysqli imap gd zip
 
+ENV COMPOSER ALLOW SUPERUSER=1
+
 # Set PHP configuration
 RUN echo "upload_max_filesize = 10M" > /usr/local/etc/php/conf.d/uploads.ini && \
     echo "post_max_size = 10M" >> /usr/local/etc/php/conf.d/uploads.ini && \
